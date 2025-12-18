@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Welcome to <%=clinicData.clinicName%></title>
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+  </head>
+  <body>
+    <!-- Home Page -->
+    <h1>Welcome to <%=clinicData.clinicName%></h1>
+    <!-- About the clinical gp practic/Contact -->
+    <p><a href="/about">About <%=clinicData.clinicName%></a></p> 
+    <!-- For security -->
+    <p><a href="/login/audit">Audit Login</a></p>
+    <!-- For login and logout -->
+    <p><a href="/login/login">Login Page</a></p>
+    <p><a href="/logout">Logout</a></p>
+    <!-- For paitents records and booking management -->
+    <p><a href="/appointment/getting-patients-data">Book Patients Appointments</a></p>
+    <p><a href="/admin-patients/list">Registered Paitents</a></p>
+    <p><a href="/admin-patients/register-patients">Register A Paitent</a></p>
+    <p><a href="/login/online-access">Paitents With Online Access</a></p>
+    <p><a href="/appointment/admin-appointments">Paitents Appointments</a></p>
+  </body>
+</html>

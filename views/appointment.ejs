@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+  <title>Book Appointment</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+  <div class="form-container">
+
+    <h1>Book Appointment</h1>
+    <p>Select a patient and appointment details</p>
+
+    <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+      <div class="error-box">
+        <% errors.forEach(err => { %>
+          <p><%= err.msg %></p>
+        <% }) %>
+      </div>
+    <% } %>
+
+    <form method="POST" action="/appointment/booking-appointment">
+
+      <!-- Patient selection -->
+      <label for="patient_id">Patient</label>
+      <select id="patient_id" name="patient_id" required>
+        <option value="">-- Select Patient --</option>
+
+        <% patients.forEach(p => { %>
+          <option value="<%= p.id %>">
+            <%= p.name %> — <%= p.dob %>
+          </option>
+        <% }) %>
+      </select>
+
+      <br><br>
+
+      <!-- Appointment date -->
+      <label for="appointment_date">Date</label>
+      <input
+        id="appointment_date"
+        type="date"
+        name="appointment_date"
+        required
+      />
+
+      <br><br>
+
+      <!-- Appointment time -->
+      <label for="appointment_time">Time</label>
+      <input
+        id="appointment_time"
+        type="time"
+        name="appointment_time"
+        required
+      />
+
+      <br><br>
+
+      <!-- Reason -->
+      <label for="reason">Reason</label>
+      <textarea
+        id="reason"
+        name="reason"
+        placeholder="Reason for appointment"
+        rows="4"
+      ></textarea>
+
+      <br><br>
+
+      <button type="submit" class="btn-submit">
+        Book Appointment
+      </button>
+
+    </form>
+
+  </div>
+
+</body>
+</html>

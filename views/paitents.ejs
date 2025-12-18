@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Management</title>
+  <link rel="stylesheet" type="text/css" href="/main.css">
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+    }
+    th, td {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+    .error-box {
+      color: red;
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Patient Management Portal</h1>
+  </header>
+
+  <!-- Search Form -->
+  <section class="search-section">
+    <h2>Search Patients</h2>
+    <form action="/admin-patients/search-result" method="GET">
+      <label for="search-box">Name:</label>
+      <input id="search-box" type="text" name="search-box" placeholder="Enter name">
+
+      <label for="dob">Date of Birth:</label>
+      <input id="dob" type="date" name="dob">
+
+      <input type="submit" value="Search">
+    </form>
+
+    <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+      <div class="error-box">
+        <% errors.forEach(err => { %>
+          <p><%= err.msg %></p>
+        <% }) %>
+      </div>
+    <% } %>
+  </section>
+
+  <!-- Search Results Table -->
+  <section class="search-results">
+    <h2>Searched Results</h2>
+    <% if (typeof searchResults !== 'undefined' && searchResults.length > 0) { %>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>DoB</th>
+            <th>Email</th>
+            <th>Phone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% searchResults.forEach(function(patient) { %>
+            <tr>
+              <td><%= patient.name %></td>
+              <td><%= patient.dob %></td>
+              <td><%= patient.email %></td>
+              <td><%= patient.phone %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <p>No results found.</p>
+    <% } %>
+  </section>
+
+  <!-- Registered Users Table -->
+  <section class="registered-users">
+    <h2>Registered Patients</h2>
+    <a href="/admin-patients/patients/export">
+      <button type="button">Export Patients to CSV</button>
+    </a><br><br>
+
+    <% if (typeof registeredUsers !== 'undefined' && registeredUsers.length > 0) { %>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>DoB</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% registeredUsers.forEach(function(user) { %>
+            <tr>
+              <td><%= user.id %></td>
+              <td><%= user.name %></td>
+              <td><%= user.dob %></td>
+              <td><%= user.email %></td>
+              <td><%= user.phone %></td>
+              <td>
+                <a href="/admin-patients/patients/edit/<%= user.id %>">Edit</a> |
+                <a href="/admin-patients/patients/delete/<%= user.id %>">Delete</a>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <p>No registered patients found.</p>
+    <% } %>
+  </section>
+
+</body>
+</html>

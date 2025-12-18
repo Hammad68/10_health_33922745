@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Audit</title>
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+  </head>
+  <body>
+    <h1>SECURITY LOGGING</h1>
+    <h2>Login Audits:</h2>
+    <ul>
+        <% auditHistory.forEach(function(log) { %>
+            <li>
+                <b>Username: </b> <%= log.username %> ---
+                <b>Login Time: </b> <%= log.login_time.toLocaleString() %> ---
+                <b>Login Status: </b> <%= log.success ? 'Success' : 'Failed' %> ---
+                <b>IP Address: </b> <%= log.ip_address %>
+            </li>
+        <% }); %>
+    </ul>
+  </body>
+</html>

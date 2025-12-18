@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Booked Appointments</title>
+</head>
+<body>
+
+<h1>All Booked Appointments</h1>
+
+<table border="1" cellpadding="8">
+  <thead>
+    <tr>
+      <th>Patient</th>
+      <th>DOB</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Reason</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if (appointments.length === 0) { %>
+      <tr>
+        <td colspan="6">No appointments booked</td>
+      </tr>
+    <% } %>
+
+    <% appointments.forEach(a => { %>
+      <tr>
+        <td><%= a.patient_name %></td>
+        <td><%= a.date_of_birth %></td>
+        <td><%= a.appointment_date %></td>
+        <td><%= a.appointment_time %></td>
+        <td><%= a.reason || '-' %></td>
+        <td><%= a.status %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+</body>
+</html>

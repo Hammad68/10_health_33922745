@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register Patient</title>
+</head>
+<body>
+
+  <h1>Register New Patient</h1>
+
+  <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+      <div class="error-box">
+        <% errors.forEach(err => { %>
+          <p><%= err.msg %></p>
+        <% }) %>
+      </div>
+  <% } %>
+
+  <form action="/admin-patients/admin/register-patient" method="POST">
+
+    <fieldset>
+      <legend>Patient Details</legend>
+
+      <label>
+        Full Name:
+        <input type="text" name="name" value="<%= formData?.name || '' %>" required>
+      </label><br><br>
+
+      <label for="dob">
+        Date of Birth:
+      <input id="dob" name="date_of_birth" type="date" value="<%= formData?.dob || '' %>" required />
+      </label><br><br>
+
+      <label>
+        Email:
+        <input type="email" name="email" value="<%= formData?.email || '' %>" required>
+      </label><br><br>
+
+      <label>
+        Phone:
+        <input type="text" name="phone" value="<%= formData?.phone || '' %>" required>
+      </label>
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+      <legend>Login Details</legend>
+
+      <label>
+        Username:
+        <input type="text" name="username" required>
+      </label><br><br>
+
+      <label>
+        Temporary Password:
+        <input type="password" name="password" required>
+      </label>
+    </fieldset>
+
+    <br>
+
+    <button type="submit">Register Patient</button>
+
+  </form>
+
+</body>
+</html>
