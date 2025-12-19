@@ -1,1 +1,16 @@
-home=https://www.doc.gold.ac.uk/usr/354/
+If logged in as an admin:
+
+home=https://www.doc.gold.ac.uk/usr/354/ -> Login redirects to admin-dashboard
+admin-dashboard=https://www.doc.gold.ac.uk/usr/354/login/admin/dashboard
+about=https://www.doc.gold.ac.uk/usr/354/about
+security-audit=https://www.doc.gold.ac.uk/usr/354/login/audit
+book-appointment=https://www.doc.gold.ac.uk/usr/354/appointment/getting-patients-data
+patients-record=https://www.doc.gold.ac.uk/usr/354/admin-patients/list
+register-patients=https://www.doc.gold.ac.uk/usr/354/admin-patients/register-patients
+patients-with-online-access=https://www.doc.gold.ac.uk/usr/354/login/online-access
+all-patients-appointments=https://www.doc.gold.ac.uk/usr/354/appointment/admin-appointments
+
+If logged in as a patient:
+
+home=https://www.doc.gold.ac.uk/usr/354/patients/dashboard -> Login redirects to patients dashboard
+about=https://www.doc.gold.ac.uk/usr/354/about
