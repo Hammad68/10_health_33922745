@@ -25,10 +25,10 @@ app.locals.clinicData = {clinicName: "Lewisham Clinical Management"}
 
 // Define the database connection pool
 const db = mysql.createPool({
-    host: process.env.BB_HOST,
-    user: process.env.BB_USER,
-    password: process.env.BB_PASSWORD,
-    database: process.env.BB_DATABASE,
+    host: process.env.HEALTH_HOST,
+    user: process.env.HEALTH_USER,
+    password: process.env.HEALTH_PASSWORD,
+    database: process.env.HEALTH_DATABASE,
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0,
